@@ -82,9 +82,8 @@
       },
       observeMessages: (messages) => {
         console.log({ messages });
-                  
-        // Get the chat window element
-        const chatWindow = document.querySelector('.flowise-embed__message-container');
+        // Get the chat window element (scrollable container)
+        const chatWindow = document.querySelector('.scrollable-container');
         
         if (chatWindow) {
           // Set scroll to top after new messages
@@ -148,7 +147,7 @@
           sendButtonColor: '#3B81F6',
           maxChars: 100,
           maxCharsWarningMessage: 'Překročili jste limit znaků. Zadejte prosím méně než 100 znaků.',
-          autoFocus: false,
+          autoFocus: true,
           sendMessageSound: false,
           receiveMessageSound: false,
         },
