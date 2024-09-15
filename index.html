@@ -82,13 +82,6 @@
       },
       observeMessages: (messages) => {
         console.log({ messages });
-        // Get the chat window element (scrollable container)
-        const chatWindow = document.querySelector('.scrollable-container');
-        
-        if (chatWindow) {
-          // Set scroll to top after new messages
-          chatWindow.scrollTop = 0;
-        }
       },
       observeLoading: (loading) => {
         console.log({ loading });
