@@ -82,6 +82,15 @@
       },
       observeMessages: (messages) => {
         console.log({ messages });
+                  
+        // Get the chat window element
+        const chatWindow = document.querySelector('.flowise-embed__message-container');
+        
+        if (chatWindow) {
+          // Set scroll to top after new messages
+          chatWindow.scrollTop = 0;
+        }
+      },
       },
       observeLoading: (loading) => {
         console.log({ loading });
