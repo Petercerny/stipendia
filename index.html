@@ -70,7 +70,7 @@
   <script type="module">
   import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
   Chatbot.init({
-    chatflowid: 'cb27d024-d3b6-4f9c-bad1-1f4aed2f21a3',
+    chatflowid: '57e77c78-d0a3-4534-afe2-6f23c661eab7',
     apiHost: 'https://flowise-novy.onrender.com',
     chatflowConfig: {
       // topK: 2
@@ -163,18 +163,25 @@
     <!-- Update Box HTML -->
     <div class="update-box">
       <div class="update-header">
-        <span class="version-number">Aktuální verze: v1.2</span>
+        <span class="version-number">Aktuální verze: v1.3</span>
         <button class="toggle-updates" onclick="toggleUpdates()">Zobrazit starší aktualizace</button>
       </div>
       
       <div class="version-info">
-        - Přidání základních informací týkající se IPC do databáze znalostí.<br>
-        - Přidání kontaktních informací IPC na konec zprávy.<br>
-        - Úprava systémové zprávy chatbota pro zlepšení odpovědí. ##(Využívání databáze pořád)
+        - Změna systému: Tento nový systém by neměl odpovídat na otázky, na které nemá data - místo toho odpoví: „Hmm, to momentálně nevím.“ Tato úprava byla provedena z toho důvodu, aby nedocházelo k halucinaci modelu, a tedy k vytváření nesprávných odpovědí. Systém může být striktní v některých případech, kdy má alespoň parciální data k vytvoření odpovědi, ale raději danou odpověď nevytvoří a místo toho pouze napíše zmíněnou hlášku.<br>
+        - Aktualizace systému Flowise - serveru<br>
+        - Úprava uživatelského rozhraní
       </div>
       
       <div class="old-updates" id="oldUpdates">
         <div class="old-update">
+             <div class="old-update-title">Verze v1.2</div>
+          <div class="old-update-info">
+        - Přidání základních informací týkající se IPC do databáze znalostí.<br>
+        - Přidání kontaktních informací IPC na konec zprávy.<br>
+        - Úprava systémové zprávy chatbota pro zlepšení odpovědí. ##(Využívání databáze pořád)
+          </div>
+        </div>
           <div class="old-update-title">Verze v1.1</div>
           <div class="old-update-info">
             - Přidání dalších starter prompts. <br>
