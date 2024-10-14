@@ -67,8 +67,96 @@
     </style>
 </head>
 <body>
-    <div id="chatbot1" style="position: fixed; left: 20px; bottom: 20px;"></div>
-    <div id="chatbot2" style="position: fixed; right: 460px; bottom: 20px;"></div>
+  <script type="module">
+  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  Chatbot.init({
+    chatflowid: '57e77c78-d0a3-4534-afe2-6f23c661eab7',
+    apiHost: 'https://flowise-novy.onrender.com',
+    chatflowConfig: {
+      // topK: 2
+    },
+    observersConfig: {
+      // (optional) Allows you to execute code in parent based upon signal observations within the chatbot.
+      observeUserInput: (userInput) => {
+        console.log({ userInput });
+      },
+      observeMessages: (messages) => {
+        console.log({ messages });
+      },
+      observeLoading: (loading) => {
+        console.log({ loading });
+      },
+    },
+    theme: {
+      button: {
+        backgroundColor: '#c73c81',
+        right: 20,
+        bottom: 20,
+        size: 48,
+        dragAndDrop: true,
+        iconColor: 'white',
+        customIconSrc: 'https://github.com/Petercerny/stipendia/blob/main/N%C3%A1vrh_bez_n%C3%A1zvu-removebg-preview.png?raw=true',
+        autoWindowOpen: {
+          autoOpen: true,
+          openDelay: 2,
+          autoOpenOnMobile: false,
+        },
+      },
+      tooltip: {
+        showTooltip: true,
+        tooltipMessage: 'Zdravím 👋!',
+        tooltipBackgroundColor: 'black',
+        tooltipTextColor: 'white',
+        tooltipFontSize: 16,
+      },
+      chatWindow: {
+        showTitle: true,
+        showAgentMessages: false,
+        title: 'ZČU Bot',
+        titleAvatarSrc: 'https://github.com/Petercerny/stipendia/blob/main/N%C3%A1vrh_bez_n%C3%A1zvu-removebg-preview.png?raw=true',
+        welcomeMessage: 'Zdravím! S čím ti mohu dnes poradit?',
+        errorMessage: 'Ajaj někde se stala chyba',
+        backgroundColor: '#ffffff',
+        height: 700,
+        width: 400,
+        fontSize: 16,
+        starterPromptFontSize: 15,
+        botMessage: {
+          backgroundColor: '#f7f8ff',
+          textColor: '#303235',
+          showAvatar: true,
+          avatarSrc: 'https://raw.githubusercontent.com/Petercerny/obrazky/main/bot.png',
+        },
+        userMessage: {
+          backgroundColor: '#c73c81',
+          textColor: '#ffffff',
+          showAvatar: true,
+          avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png',
+        },
+        textInput: {
+          placeholder: 'Napište svůj dotaz',
+          backgroundColor: '#ffffff',
+          textColor: '#303235',
+          sendButtonColor: '#c73c81',
+          maxChars: 100,
+          maxCharsWarningMessage: 'Překročili jste limit znaků. Zadejte prosím méně než 100 znaků.',
+          autoFocus: true,
+          sendMessageSound: false,
+          receiveMessageSound: false,
+        },
+        feedback: {
+          color: '#303235',
+        },
+           footer: {
+                    textColor: '#303235',
+                    text: '',
+                    company: '',
+                    companyLink: '',
+                },
+      },
+    },
+  });
+</script>
 
     <h1>Testovací stránka</h1>
 
@@ -105,156 +193,9 @@
           <div class="old-update-title">Verze v1.0 </div>
           <div class="old-update-info"> První verze </div>
         </div>
+        <!-- Add more updates as needed -->
       </div>
     </div>
-
-    <script type="module">
-      import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
-
-      // Initialize the first chatbot
-      Chatbot.init({
-        element: document.getElementById('chatbot1'),
-        chatflowid: '57e77c78-d0a3-4534-afe2-6f23c661eab7',
-        apiHost: 'https://flowise-novy.onrender.com',
-        chatflowConfig: {},
-        observersConfig: {
-          observeUserInput: (userInput) => {
-            console.log({ userInput });
-          },
-          observeMessages: (messages) => {
-            console.log({ messages });
-          },
-          observeLoading: (loading) => {
-            console.log({ loading });
-          },
-        },
-        theme: {
-          button: {
-            backgroundColor: '#c73c81',
-            right: 20,
-            bottom: 20,
-            size: 48,
-            dragAndDrop: true,
-            iconColor: 'white',
-            customIconSrc: 'https://github.com/Petercerny/stipendia/blob/main/N%C3%A1vrh_bez_n%C3%A1zvu-removebg-preview.png?raw=true',
-            autoWindowOpen: {
-              autoOpen: true,
-              openDelay: 2,
-              autoOpenOnMobile: false,
-            },
-          },
-          tooltip: {
-            showTooltip: true,
-            tooltipMessage: 'Zdravím 👋!',
-            tooltipBackgroundColor: 'black',
-            tooltipTextColor: 'white',
-            tooltipFontSize: 16,
-          },
-          chatWindow: {
-            showTitle: true,
-            showAgentMessages: false,
-            title: 'ZČU Bot 1',
-            titleAvatarSrc: 'https://github.com/Petercerny/stipendia/blob/main/N%C3%A1vrh_bez_n%C3%A1zvu-removebg-preview.png?raw=true',
-            welcomeMessage: 'Zdravím! S čím ti mohu dnes poradit?',
-            errorMessage: 'Ajaj někde se stala chyba',
-            backgroundColor: '#ffffff',
-            height: 700,
-            width: 400,
-            fontSize: 16,
-            botMessage: {
-              backgroundColor: '#f7f8ff',
-              textColor: '#303235',
-              showAvatar: true,
-              avatarSrc: 'https://raw.githubusercontent.com/Petercerny/obrazky/main/bot.png',
-            },
-            userMessage: {
-              backgroundColor: '#c73c81',
-              textColor: '#ffffff',
-              showAvatar: true,
-              avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png',
-            },
-            textInput: {
-              placeholder: 'Napište svůj dotaz',
-              backgroundColor: '#ffffff',
-              textColor: '#303235',
-              sendButtonColor: '#c73c81',
-            },
-          },
-        },
-      });
-
-      // Initialize the second chatbot
-      Chatbot.init({
-        element: document.getElementById('chatbot2'),
-        chatflowid: 'another-chatflow-id', // Use a different chatflow ID if needed
-        apiHost: 'https://flowise-novy.onrender.com',
-        chatflowConfig: {},
-        observersConfig: {
-          observeUserInput: (userInput) => {
-            console.log({ userInput });
-          },
-          observeMessages: (messages) => {
-            console.log({ messages });
-          },
-          observeLoading: (loading) => {
-            console.log({ loading });
-          },
-        },
-        theme: {
-          button: {
-            backgroundColor: '#c73c81',
-            right: 20,
-            bottom: 20,
-            size: 48,
-            dragAndDrop: true,
-            iconColor: 'white',
-            customIconSrc: 'https://github.com/Petercerny/stipendia/blob/main/N%C3%A1vrh_bez_n%C3%A1zvu-removebg-preview.png?raw=true',
-            autoWindowOpen: {
-              autoOpen: true,
-              openDelay: 2,
-              autoOpenOnMobile: false,
-            },
-          },
-          tooltip: {
-            showTooltip: true,
-            tooltipMessage: 'Druhý Bot 👋!',
-            tooltipBackgroundColor: 'black',
-            tooltipTextColor: 'white',
-            tooltipFontSize: 16,
-          },
-          chatWindow: {
-            showTitle: true,
-            showAgentMessages: false,
-            title: 'ZČU Bot 2',
-            titleAvatarSrc: 'https://github.com/Petercerny/stipendia/blob/main/N%C3%A1vrh_bez_n%C3%A1zvu-removebg-preview.png?raw=true',
-            welcomeMessage: 'Druhý chatbot k vašim službám!',
-            errorMessage: 'Ajaj někde se stala chyba',
-            backgroundColor: '#ffffff',
-            height: 700,
-            width: 400,
-            fontSize: 16,
-            botMessage: {
-              backgroundColor: '#f7f8ff',
-              textColor: '#303235',
-              showAvatar: true,
-              avatarSrc: 'https://raw.githubusercontent.com/Petercerny/obrazky/main/bot.png',
-            },
-            userMessage: {
-              backgroundColor: '#c73c81',
-              textColor: '#ffffff',
-              showAvatar: true,
-              avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png',
-            },
-            textInput: {
-              placeholder: 'Zadejte svůj dotaz',
-              backgroundColor: '#ffffff',
-              textColor: '#303235',
-              sendButtonColor: '#c73c81',
-            },
-          },
-        },
-      });
-    </script>
 
     <script>
       function toggleUpdates() {
