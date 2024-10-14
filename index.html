@@ -13,10 +13,20 @@
             margin: 0;
             font-family: Arial, sans-serif;
             position: relative;
+            flex-direction: column;
         }
         h1 {
             font-size: 3rem;
             text-align: center;
+            margin-bottom: 10px;
+        }
+        a.previous-version {
+            font-size: 1.2rem;
+            color: #007bff;
+            text-decoration: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
         }
         /* Update box styles */
         .update-box {
@@ -31,7 +41,7 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1000; /* Ensures it's on top */
+            z-index: 1000;
         }
         .update-header {
             display: flex;
@@ -76,7 +86,6 @@
       // topK: 2
     },
     observersConfig: {
-      // (optional) Allows you to execute code in parent based upon signal observations within the chatbot.
       observeUserInput: (userInput) => {
         console.log({ userInput });
       },
@@ -147,18 +156,20 @@
         feedback: {
           color: '#303235',
         },
-           footer: {
-                    textColor: '#303235',
-                    text: '',
-                    company: '',
-                    companyLink: '',
-                },
+        footer: {
+          textColor: '#303235',
+          text: '',
+          company: '',
+          companyLink: '',
+        },
       },
     },
   });
 </script>
 
     <h1>Testovací stránka</h1>
+
+    <a href="https://petercerny.github.io/stipendia-v-1.2/" class="previous-version" target="_blank">předchozí verze 1.2</a>
 
     <!-- Update Box HTML -->
     <div class="update-box">
@@ -175,19 +186,18 @@
       
       <div class="old-updates" id="oldUpdates">
         <div class="old-update">
-             <div class="old-update-title">Verze v1.2</div>
+          <div class="old-update-title">Verze v1.2</div>
           <div class="old-update-info">
-        - Přidání základních informací týkající se IPC do databáze znalostí.<br>
-        - Přidání kontaktních informací IPC na konec zprávy.<br>
-        - Úprava systémové zprávy chatbota pro zlepšení odpovědí. ##(Využívání databáze pořád)
+            - Přidání základních informací týkající se IPC do databáze znalostí.<br>
+            - Přidání kontaktních informací IPC na konec zprávy.<br>
+            - Úprava systémové zprávy chatbota pro zlepšení odpovědí. ##(Využívání databáze pořád)
           </div>
         </div>
-          <div class="old-update-title">Verze v1.1</div>
-          <div class="old-update-info">
-            - Přidání dalších starter prompts. <br>
-            - Přidání více informací týkající se postupu podání žádosti na ubytovací a sociální stipendium. <br>
-            - Snížení temperature llm pro získání determinističtější a pravděpodobnější odpovědi. ##(0,3)
-          </div>
+        <div class="old-update-title">Verze v1.1</div>
+        <div class="old-update-info">
+          - Přidání dalších starter prompts. <br>
+          - Přidání více informací týkající se postupu podání žádosti na ubytovací a sociální stipendium. <br>
+          - Snížení temperature llm pro získání determinističtější a pravděpodobnější odpovědi. ##(0,3)
         </div>
         <div class="old-update">
           <div class="old-update-title">Verze v1.0 </div>
